@@ -50,17 +50,6 @@
       margin-top: 10px;
     }
     .confirm-btn:hover { background-color: #1d4ed8; }
-    .debug {
-      margin-top: 20px;
-      font-size: 11px;
-      color: #999;
-      word-break: break-all;
-      text-align: left;
-      background: #fafafa;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #eee;
-    }
   </style>
 </head>
 <body>
@@ -78,12 +67,10 @@
   <div id="success" style="display:none;">
     <h2>You're all set! 🎉</h2>
     <p>Thanks for your interest. We'll be in touch shortly.</p>
-    <div class="debug" id="debugSuccess"></div>
   </div>
   <div id="error" style="display:none;">
     <h2>Something went wrong</h2>
     <p id="errorMessage">Please try clicking the link again.</p>
-    <div class="debug" id="debugError"></div>
   </div>
 </div>
 <script>
@@ -122,13 +109,11 @@ if (!email) {
             }
             document.getElementById("loading").style.display = "none";
             document.getElementById("success").style.display = "block";
-            document.getElementById("debugSuccess").innerText = result; // <-- shows diagnostics on-page
         } catch (err) {
             document.getElementById("loading").style.display = "none";
             document.getElementById("error").style.display = "block";
             document.getElementById("errorMessage").innerText =
                 err.message || "Unable to contact the server.";
-            document.getElementById("debugError").innerText = err.message || "";
         }
     });
 }
